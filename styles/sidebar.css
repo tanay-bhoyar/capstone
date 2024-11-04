@@ -1,0 +1,57 @@
+.sidebar {
+    width: 220px;
+    background-color: white;
+    color: black;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .sidebar-subtext {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar-nav {
+    flex-grow: 1;
+  }
+  
+  .sidebar-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar-item {
+    margin: 10px 0;
+    cursor: pointer;
+    padding: 8px 0;
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+  }
+  
+  .sidebar-item:hover,
+  .sidebar-item.active {
+    background-color: #800000;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  .sidebar-spacer {
+    height: 30px;
+    background-color: white;
+  }
+  
+  .jobs-link {
+    text-align: center;
+    border: 2px solid #800000;
+    background-color: white;
+  }
+  

@@ -1,11 +1,32 @@
 // components/PersonalInfoForm.js
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import '../styles/PersonalInfoForm.css';
 import NavBar from '../components/NavBar';
 import Link from 'next/link';
+import Sidebar from '../components/sidebar';
+import MobileNav from '../components/mobilenav';
+import { FiAlignJustify } from "react-icons/fi";
+import "../styles/index.css";
 
 
 const PersonalInfoForm = () => {
+
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+
+  // Function to handle resize
+  const handleResize = () => {
+    if (window.innerWidth < 768) {
+      setIsSidebarVisible(false);
+    } else {
+      setIsSidebarVisible(true);
+    }
+  };
+  useEffect(() => {
+    handleResize(); // Check initial size
+    window.addEventListener('resize', handleResize); // Add event listener
+    return () => window.removeEventListener('resize', handleResize); // Cleanup
+  }, []);
+
   const [formData, setFormData] = useState({
     salutation: '',
     name: '',
@@ -37,21 +58,8 @@ const PersonalInfoForm = () => {
     <div className="dashboard-container">
       <NavBar />
       <div className="dashboard-content">
-        <div className="sidebar">
-          <h2>Hello, Sri Vardhan</h2>
-          <p>Happy to see you here!</p>
-          <ul>
-          <Link href="./Dashboard"><li className="dashboard-btn active">Dashboard</li></Link>
-            <Link href="/Personalform"><li>Personal Information</li></Link>
-            <Link href="/education"><li>Education</li></Link>
-            <Link href="/experience"><li>Experience</li></Link>
-            <Link href="/research"><li>Research</li></Link>
-            <Link href="/documents-upload"><li>Documents Upload</li></Link>
-            <li className="empty"></li>
-            <Link href="/jobs-applied"><li className="jobs">Jobs you applied</li></Link>
-          </ul>
-        </div>
-
+      {isSidebarVisible && <Sidebar />} 
+        
         <div className="main-content">
           <div className="header">
             <h1>Personal Information</h1>

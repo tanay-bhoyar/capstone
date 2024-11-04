@@ -1,0 +1,75 @@
+/* General styles for the navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #c82333; /* Change to your desired background color */
+    
+    color: white; /* Change text color as needed */
+  }
+  
+  /* Logo styles */
+  .logo h2 {
+    margin: 0;
+  }
+  
+  /* Button styles */
+  .rnav-button {
+    margin: 0 ;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #c82333; /* Button background color */
+    color: white; /* Button text color */
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .rnav-button:hover {
+    background-color: #c82333; /* Darker shade on hover */
+  }
+  
+  /* Styles for the logout button */
+  .logout {
+    background-color: #dc3545; /* Logout button color */
+  }
+  
+  .logout:hover {
+    background-color: #c82333; /* Darker shade on hover */
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction:row; 
+      margin-right: 0px;/* Stack items vertically on smaller screens */
+      float: right;
+      display: flex; /* Align items to the left */
+    }
+  
+    .navbar > div {
+      width: 100%; /* Make button container full width */
+      display: flex;
+      flex-wrap: wrap; /* Wrap buttons to next line if needed */
+      justify-content: space-between; /* Space between buttons */
+    }
+  
+    .left-btn, .nav-button {
+      flex: 1 1 auto;
+      float: right; /* Allow buttons to grow and shrink */
+      margin: 5px; /* Space between buttons */
+    }
+  }
+  
+  /* Additional styles for mobile responsiveness */
+  @media (max-width: 480px) {
+    .navbar {
+      /* Reduce padding on very small screens */
+    }
+  
+    .rnav-button {
+      /* Smaller padding for buttons */
+      font-size: 14px; /* Adjust font size */
+    }
+  }
+  

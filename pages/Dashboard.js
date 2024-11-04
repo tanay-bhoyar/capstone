@@ -1,9 +1,28 @@
-// components/Dashboard.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/Dashboard.css';
 import Link from 'next/link';
+import Sidebar from '../components/sidebar';
+import { FiAlignJustify } from "react-icons/fi";
+import NavBar from '../components/NavBar';
 
 const Dashboard = () => {
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+
+  // Function to handle resize
+  const handleResize = () => {
+    if (window.innerWidth < 768) {
+      setIsSidebarVisible(false);
+    } else {
+      setIsSidebarVisible(true);
+    }
+  };
+
+  useEffect(() => {
+    handleResize(); // Check initial size
+    window.addEventListener('resize', handleResize); // Add event listener
+    return () => window.removeEventListener('resize', handleResize); // Cleanup
+  }, []);
+
   const jobApplications = [
     { id: 1, jobId: '74662', role: 'Associate Professor For SCOPE', date: '01 Mar 2023', category: 'Faculty', status: 'REJECTED' },
     { id: 2, jobId: '74662', role: 'Associate Professor For SCOPE', date: '01 Mar 2023', category: 'Admin', status: 'SELECTED' },
@@ -13,22 +32,9 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      <NavBar />
+      <NavBar></NavBar>
       <div className="dashboard-content">
-        <div className="sidebar">
-          <h2>Hello, Sri Vardhan</h2>
-          <p>Happy to see you here!</p>
-          <ul>
-          <Link href="./Dashboard"><li className="dashboard-btn active">Dashboard</li></Link>
-            <Link href="/Personalform"><li>Personal Information</li></Link>
-            <Link href="/education"><li>Education</li></Link>
-            <Link href="/experience"><li>Experience</li></Link>
-            <Link href="/research"><li>Research</li></Link>
-            <Link href="/documents-upload"><li>Documents Upload</li></Link>
-            <li className="empty"></li>
-            <Link href="/jobs-applied"><li className="jobs">Jobs you applied</li></Link>
-          </ul>
-        </div>
+        {isSidebarVisible && <Sidebar />} {/* Conditionally render sidebar */}
 
         <div className="main-content">
           <div className="header">
@@ -75,21 +81,5 @@ const Dashboard = () => {
   );
 };
 
-const NavBar = () => {
-  return (
-    <div className="navbar">
-      <div className="logo">
-        <h2>VIT-AP University</h2>
-      </div>
-      <div>
-        <button className='left-btn rnav-button'>Home</button>
-        <button className='left-btn rnav-button'>Jobs Applied</button>
-        <button className='leftmost-btn rnav-button'>Contact Us</button>
-        <button className="nav-button">VITAP Home Page</button>
-        <button className="nav-button logout">Logout</button>
-      </div>
-    </div>
-  );
-};
 
 export default Dashboard;

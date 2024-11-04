@@ -85,6 +85,7 @@ input[type="month"] {
   display: flex;
   flex-direction: column;
   background-color: #f4f4f4;
+  height: 100%;
 }
 
 .navbar {
@@ -108,7 +109,6 @@ input[type="month"] {
 .navbar .nav-button {
   background-color: white;
   color: #800000;
-  padding: 8px 16px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -177,6 +177,7 @@ input[type="month"] {
   margin-top: 25px;
   margin-left: 25px;
   margin-right: 25px;
+  height: 100%;
 }
 
 .header {

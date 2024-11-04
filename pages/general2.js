@@ -1,8 +1,25 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import '../styles/General2.css'; // Make sure to adjust the path according to your folder structure
+import Sidebar2 from '../components/sidebar2';
 
 const General2 = () => {
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+
+  // Function to handle resize
+  const handleResize = () => {
+    if (window.innerWidth < 768) {
+      setIsSidebarVisible(false);
+    } else {
+      setIsSidebarVisible(true);
+    }
+  };
+
+  useEffect(() => {
+    handleResize(); // Check initial size
+    window.addEventListener('resize', handleResize); // Add event listener
+    return () => window.removeEventListener('resize', handleResize); // Cleanup
+  }, []);
   const [formData, setFormData] = useState({
     Category: '',
     Role: '',
@@ -31,21 +48,7 @@ const General2 = () => {
     <div className="dashboard-container">
       <NavBar />
       <div className="dashboard-content">
-        <div className="sidebar">
-          <h2>Hello, Sri Vardhan</h2>
-          <p>Happy to see you here!</p>
-          <ul>
-            <li className="dashboard-btn active">Post a Job</li>
-            <li>Jobs Posted</li>
-            <div className="dropdown">
-              <button className="dropdown-btn">Jobs Posted</button>
-              <div className="dropdown-content">
-                <a href="#" className="dropdown-item">Current Jobs</a>
-                <a href="#" className="dropdown-item">Past Jobs</a>
-              </div>
-            </div>
-          </ul>
-        </div>
+      {isSidebarVisible && <Sidebar2></Sidebar2>}
 
         <div className="main-content">
           <div className="header">

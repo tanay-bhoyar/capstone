@@ -1,9 +1,26 @@
 // pages/resume.js
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Link from 'next/link';
 import '../styles/Resume.css'; // Adjust the path as necessary
+import Sidebar from '../components/sidebar';
+import NavBar from '../components/NavBar';
 
 const Resume = () => {
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+
+  // Function to handle resize
+  const handleResize = () => {
+    if (window.innerWidth < 768) {
+      setIsSidebarVisible(false);
+    } else {
+      setIsSidebarVisible(true);
+    }
+  };
+  useEffect(() => {
+    handleResize(); // Check initial size
+    window.addEventListener('resize', handleResize); // Add event listener
+    return () => window.removeEventListener('resize', handleResize); // Cleanup
+  }, []);
   const [formData, setFormData] = useState({
     resume: null,
     transcript: null,
@@ -35,22 +52,9 @@ const Resume = () => {
 
   return (
     <div className="dashboard-container">
-      <NavBar />
+      <NavBar></NavBar>
       <div className="dashboard-content">
-        <div className="sidebar">
-          <h2>Hello, Sri Vardhan</h2>
-          <p>Happy to see you here!</p>
-          <ul>
-          <Link href="./Dashboard"><li className="dashboard-btn active">Dashboard</li></Link>
-            <Link href="/Personalform"><li>Personal Information</li></Link>
-            <Link href="/education"><li>Education</li></Link>
-            <Link href="/experience"><li>Experience</li></Link>
-            <Link href="/research"><li>Research</li></Link>
-            <Link href="/documents-upload"><li>Documents Upload</li></Link>
-            <li className="empty"></li>
-            <Link href="/current-jobs"><li className="jobs">Jobs you applied</li></Link>
-          </ul>
-        </div>
+      {isSidebarVisible && <Sidebar />}
 
         <div className="main-content">
           <div className="form-container">
@@ -140,21 +144,6 @@ const Resume = () => {
   );
 };
 
-const NavBar = () => {
-  return (
-    <div className="navbar">
-      <div className="logo">
-        <h2>VIT-AP University</h2>
-      </div>
-      <div>
-        <button className='left-btn rnav-button'>Home</button>
-        <button className='left-btn rnav-button'>Jobs Applied</button>
-        <button className='leftmost-btn rnav-button'>Contact Us</button>
-        <button className="nav-button">VITAP Home Page</button>
-        <button className="nav-button logout">Logout</button>
-      </div>
-    </div>
-  );
-};
+
 
 export default Resume;
