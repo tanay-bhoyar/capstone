@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #c82333; /* Change to your desired background color */
+    background-color:#800000; /* Change to your desired background color */
     
     color: white; /* Change text color as needed */
   }
@@ -19,23 +19,23 @@
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
-    background-color: #c82333; /* Button background color */
+    background-color: #800000; /* Button background color */
     color: white; /* Button text color */
     cursor: pointer;
     transition: background-color 0.3s;
   }
   
   .rnav-button:hover {
-    background-color: #c82333; /* Darker shade on hover */
+    background-color:#800000; /* Darker shade on hover */
   }
   
   /* Styles for the logout button */
   .logout {
-    background-color: #dc3545; /* Logout button color */
+    background-color:#800000; /* Logout button color */
   }
   
   .logout:hover {
-    background-color: #c82333; /* Darker shade on hover */
+    background-color:#800000; /* Darker shade on hover */
   }
   
   /* Responsive styles */
@@ -65,6 +65,7 @@
   @media (max-width: 480px) {
     .navbar {
       /* Reduce padding on very small screens */
+      width: 100%;
     }
   
     .rnav-button {

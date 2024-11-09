@@ -16,7 +16,6 @@ const Dashboard = () => {
       setIsSidebarVisible(true);
     }
   };
-
   useEffect(() => {
     handleResize(); // Check initial size
     window.addEventListener('resize', handleResize); // Add event listener
@@ -32,9 +31,9 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      <NavBar></NavBar>
+      <NavBar />
       <div className="dashboard-content">
-        {isSidebarVisible && <Sidebar />} {/* Conditionally render sidebar */}
+      {isSidebarVisible && <Sidebar />} 
 
         <div className="main-content">
           <div className="header">
