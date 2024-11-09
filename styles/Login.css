@@ -168,7 +168,9 @@ button:hover {
 /* General mobile styles */
 @media (max-width: 768px) {
   .login-container { /* Stack elements vertically */
-    width: 100%;
+    width: 100vh;
+    height: 200vh;
+    padding-left: 100px;
   }
 
   .image-container {
@@ -178,6 +180,7 @@ button:hover {
   .form-container {
     width: 100vh; /* Take full width of the screen */
     padding: 20px;
+    height: 100%;
   }
 
   .login-box {
