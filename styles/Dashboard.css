@@ -212,3 +212,68 @@
     margin-left: 10px;
     font-size: 14px;
   }
+
+  @media (max-width: 768px) {
+    /* Navbar adjustments */
+    .navbar .nav-button {
+      font-size: 0.8em;
+      padding: 6px 12px;
+    }
+  
+    /* Hide sidebar on small screens */
+    .sidebar {
+      display: none;
+    }
+  
+    /* Full-width main content on small screens */
+    .main-content {
+      margin: 0;
+      padding: 15px;
+      overflow-x: scroll;
+      height: 100%;
+    }
+  
+    /* Make table scrollable on small screens */
+    .jobs-table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  
+    /* Adjust table header and row font sizes */
+    .jobs-table th, .jobs-table td {
+      font-size: 0.85em;
+      padding: 8px;
+    }
+  
+    /* Smaller date-picker and filter dropdown */
+    .date-picker, .filter-dropdown {
+      width: 100%;
+      margin: 0 0 10px 0;
+    }
+  
+    /* Header text adjustment */
+    .header h1 {
+      font-size: 1.5em;
+    }
+  }
+  
+  /* Responsive styles for extra-small screens */
+  @media (max-width: 480px) {
+    /* Navbar text size */
+    .navbar .logo h2 {
+      font-size: 1em;
+    }
+  
+    /* Smaller padding for main content */
+    .main-content {
+      padding: 10px;
+    }
+  
+    /* Font-size adjustments for table */
+    .jobs-table th, .jobs-table td {
+      font-size: 0.8em;
+      padding: 5px;
+    }
+  }
+  
